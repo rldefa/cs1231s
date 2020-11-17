@@ -6,6 +6,7 @@ Current features:
 1. Find gcd of two numbers
 2. Find bezout's identity of two numbers
 3. Convert base 10 to desired base (support up to base 36)
-4. Check whether an input is prime
+4. Convert from other bases to base 10
+5. Check whether an input is prime
 
 Feel free to use and share.
