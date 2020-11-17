@@ -22,19 +22,17 @@ function base_converter(value, base_out){
         }
     }
     
-    let pow = 0;
     let final = "";
     while (value !== 0){
         const rem = value%base_out;
         value = math_floor(value/base_out);
         final = alphabets(rem) + final;
-        pow = pow + 1;
     }
     
     return final;
 }
 
-function lin_comb(a,b){
+function bezout(a,b){
     //Index 0 is gcd, 1is x and 2 is y where gcd = ax + by
     let A = [a,1,0];
     let B = [b,0,1];
@@ -48,5 +46,5 @@ function lin_comb(a,b){
 		A = B;
 		B = C;
 	}
-	return A;
+    return A;
 }
