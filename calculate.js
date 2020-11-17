@@ -61,3 +61,36 @@ function is_prime(n){
     
     return prime;
 }
+
+function convert_to_decimal(number, base){
+    // number must in a list 
+    // accomodate up to base-16 
+    // eg. convert_to_decimal(list(1,1,0,"A"), 14);
+    const alphabets = ["A","B","C","D","E","F"];
+    
+    function find_index(alp){
+        for(let i = 0; i < array_length(alphabets); i = i + 1){
+            if(alphabets[i] === alp){
+                return i;
+            } else {}
+        }
+        
+        return undefined; // error
+    }
+    
+    const lookup = x => is_number(x)
+        ? x 
+        : find_index(x) + 10;
+                
+    function helper(number, base, index){
+        return is_null(number)
+            ? 0 
+            : lookup(head(number)) *  math_pow(base, index) 
+                + helper(tail(number), base, index + 1);
+    }
+    
+    return helper(reverse(number), base, 0);
+}
+
+
+
