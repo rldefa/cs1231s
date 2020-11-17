@@ -52,7 +52,7 @@ function bezout(a,b){
 function is_prime(n){
     //Returns true if n is prime, false if n is not prime.
     let prime = true;
-    for(let i = 2; i < n; i = i + 1){
+    for(let i = 2; i < math_sqrt(n); i = i + 1){
         if(n%i === 0){
             prime = false;
             break;
