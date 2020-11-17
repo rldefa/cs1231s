@@ -1,5 +1,7 @@
 # cs1231s finals algos
 
+Written in Source (CS1101S) NUS
+
 Current features:
 1. Find gcd of two numbers
 2. Find bezout's identity of two numbers
