@@ -48,3 +48,16 @@ function bezout(a,b){
 	}
     return A;
 }
+
+function is_prime(n){
+    //Returns true if n is prime, false if n is not prime.
+    let prime = true;
+    for(let i = 2; i < n; i = i + 1){
+        if(n%i === 0){
+            prime = false;
+            break;
+        }else{}
+    }
+    
+    return prime;
+}
