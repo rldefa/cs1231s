@@ -33,7 +33,7 @@ function base_converter(value, base_out){
 }
 
 function bezout(a,b){
-    //Index 0 is gcd, 1is x and 2 is y where gcd = ax + by
+    //Index 0 is gcd, 1 is x and 2 is y where gcd = ax + by
     let A = [a,1,0];
     let B = [b,0,1];
     
@@ -89,6 +89,3 @@ function convert_to_decimal(number, base){
     
     return helper(reverse(number), base, 0);
 }
-
-
-
