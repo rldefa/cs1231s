@@ -89,3 +89,21 @@ function convert_to_decimal(number, base){
     
     return helper(reverse(number), base, 0);
 }
+
+function multi_inverse(a, n){
+    //Find multiplicative inverse of a mod n, returns 0 if it does not exist
+    //Assume that both a and n are positive
+    if(gcd(a,n) === 1){
+        let answer = null;
+        for(let i = 1; i > 0; i = i + 1){
+            if((a*i)%n === 1){
+                answer = i;
+                break;
+            }else{}
+        }
+        
+        return answer;
+    }else{
+        return 0;
+    }
+}
