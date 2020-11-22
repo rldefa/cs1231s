@@ -135,3 +135,29 @@ function to_tree_postorder(postorder, inorder){
 // const inorder = list('C', 'F', 'G', 'E', 'D', 'H', 'B', 'A');
 // const tree = to_tree_postorder(postorder, inorder);
 // display_list(tree);
+
+// Count number of functions mapping A to B,
+// with cardinalities m and n respectively
+const factorial = n => n <= 1 ? 1 : n * factorial(n - 1);
+const choose = (n, r) => factorial(n) / (factorial(n - r) * factorial(r));
+const permute = (n, r) => factorial(n) / factorial(n - r);
+
+function num_func(m, n){
+    return math_pow(n, m);
+}
+
+function injective(m, n){
+    return m > n ? 0 : permute(n, m);
+}
+
+function surjective(m, n){
+    let result = 0;
+    for(let i = 0; i <= n - 1; i = i + 1){
+        result = result + math_pow(-1, i) * choose(n, i) * math_pow(n - i, m);
+    }
+    return result;
+}
+
+function bijective(m, n){
+    return m === n ? factorial(m) : 0;
+}
