@@ -93,17 +93,11 @@ function convert_to_decimal(number, base){
 function multi_inverse(a, n){
     //Find multiplicative inverse of a mod n, returns 0 if it does not exist
     //Assume that both a and n are positive
-    if(gcd(a,n) === 1){
-        let answer = null;
-        for(let i = 1; i > 0; i = i + 1){
-            if((a*i)%n === 1){
-                answer = i;
-                break;
-            }else{}
-        }
-        
-        return answer;
-    }else{
-        return 0;
+    let bezout_result = bezout(a,n);
+    if(bezout_result[0] !== 1){
+    	// no multiplicative inverse since there are no co prime 
+	return 0;
+    } else {
+    	return bezout_result[1];
     }
 }
