@@ -10,5 +10,6 @@ Current features:
 5. Check whether an input is prime
 6. Calculate multiplicative inverse of a modulo n
 7. Given inorder and either preorder and postorder traversal of a tree, output the unique tree
+8. Count number of functions mapping A to B, with cardinalities m and n respectively
 
 Feel free to use and share.
