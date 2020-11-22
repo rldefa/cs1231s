@@ -100,3 +100,38 @@ function multi_inverse(a, n){
     	return bezout_result[1];
     }
 }
+
+// Courtesy of Amadeus
+const take_right = (x, xs) => tail(member(x, xs));
+const take_left = (x, xs) => reverse(take_right(x, reverse(xs)));
+// every item is unique, so no problem 
+
+function to_tree_preorder(preorder, inorder){
+    // given preorder and inorder, output the unique tree
+    if(is_null(inorder) || is_null(preorder)){
+        return null;
+    } else if(is_null(member(head(preorder), inorder))){
+        return to_tree_preorder(tail(preorder), inorder);
+    } else {
+        const root = head(preorder);
+        
+        const left = take_left(root, inorder);
+        const right = take_right(root, inorder);
+        
+        return list(root,
+                    to_tree_preorder(tail(preorder), left),
+                    to_tree_preorder(tail(preorder), right));
+    }
+}
+
+function to_tree_postorder(postorder, inorder){
+    // given postorder and inorder, output the unique tree 
+    const reversed_order = reverse(postorder);
+    return to_tree_preorder(reversed_order, inorder);
+}
+
+// example to use
+// const postorder = list('F', 'C', 'E', 'H', 'D', 'A', 'B', 'G');
+// const inorder = list('C', 'F', 'G', 'E', 'D', 'H', 'B', 'A');
+// const tree = to_tree_postorder(postorder, inorder);
+// display_list(tree);
